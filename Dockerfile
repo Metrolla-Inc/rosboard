@@ -1,4 +1,6 @@
-FROM python:3.11-slim
+FROM ros:noetic-perception-focal as base
+
+ENV ROS_DISTRO=noetic
 
 # Set work directory
 WORKDIR /app
