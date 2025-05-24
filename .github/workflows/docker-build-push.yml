@@ -15,10 +15,10 @@ jobs:
         with:
           submodules: recursive # recursively fetch submodules
           fetch-depth: 0   # ensure full history, useful if submodules use specific commits
-          token: ${{ secrets.GA_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Log in to GitHub Container Registry
-        run: echo "${{ secrets.PACKAGES_TOKEN }}" | docker login ghcr.io -u metrolla-inc --password-stdin
+        run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u metrolla-inc --password-stdin
 
       - name: Build Docker image
         run: docker build -t ghcr.io/metrolla-inc/rosboard:latest .
