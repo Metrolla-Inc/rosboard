@@ -1,0 +1,21 @@
+name: Docker Build Check
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code with submodules
+        uses: actions/checkout@v3
+        with:
+          submodules: recursive  # recursively fetch submodules
+          fetch-depth: 0    # ensure full history, useful if submodules use specific commits
+          token: ${{ secrets.GA_TOKEN }} 
+
+      - name: Build Docker image
+        run: docker build -t ghcr.io/metrolla-inc/rosboard:pr-check .
