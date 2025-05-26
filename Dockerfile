@@ -23,4 +23,4 @@ COPY . .
 EXPOSE 8888
 
 # Launch the server (modify if your entrypoint differs)
-CMD ["python", "rosboard/rosboard.py"]
+CMD ["python3", "rosboard/rosboard.py"]
