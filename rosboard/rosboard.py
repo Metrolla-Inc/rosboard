@@ -32,7 +32,7 @@ class ROSBoardNode(object):
     def __init__(self, node_name = "rosboard_node"):
         self.__class__.instance = self
         rospy.init_node(node_name)
-        self.port = rospy.get_param("~port", 8888)
+        self.port = rospy.get_param("~port", 80)
         self.title = rospy.get_param("~title", socket.gethostname())
 
         # desired subscriptions of all the websockets connecting to this instance.
